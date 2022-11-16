@@ -1,0 +1,344 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPcNfGVtXIM8p8VWC8xO13o"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# **Dictionary to DataFrame**"
+      ],
+      "metadata": {
+        "id": "-gO88g8ZcPRI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Exercise 1**"
+      ],
+      "metadata": {
+        "id": "5arl3ChJc6WQ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 12,
+      "metadata": {
+        "id": "K8plF04BYnRU"
+      },
+      "outputs": [],
+      "source": [
+        "#Pre-defined lists\n",
+        "\n",
+        "names = ['United States', 'Australia','Japan', 'India', 'Russia', 'Morocco','Egypt']\n",
+        "dr = [True, False, False, False, True, True, True]\n",
+        "cpc = [809, 731, 588, 18, 200, 70, 45]\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Import pandas as pd\n",
+        "\n",
+        "import pandas as pd\n"
+      ],
+      "metadata": {
+        "id": "ukzhW94UZK-l"
+      },
+      "execution_count": 5,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Create dictionary my_dict with three key: value pairs: my_dict\n",
+        "\n",
+        "#key -> country -> names (value)\n",
+        "#key -> 'drive_right -> dr (value)\n",
+        "#key -> cars_per_cap -> cpc (value)\n",
+        "\n",
+        "my_dict = {'country': names, 'drive_right': dr, 'cars_per_cap': cpc}"
+      ],
+      "metadata": {
+        "id": "8GBwHEPUZaBT"
+      },
+      "execution_count": 6,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Build a DataFrame cars from my_dict: cars\n",
+        "#Use pd.DataFrame to turn your dict into a DataFrame called *cars*\n",
+        "\n",
+        "cars = pd.DataFrame(my_dict)"
+      ],
+      "metadata": {
+        "id": "Ag3zsrvoaYt2"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "#Print cars\n",
+        "print(cars)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "A7ytjFBBaziK",
+        "outputId": "02390d54-13ff-46f1-b686-f6964fcda3ed"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "         country  drive_right  cars_per_cap\n",
+            "0  United States         True           809\n",
+            "1      Australia        False           731\n",
+            "2          Japan        False           588\n",
+            "3          India        False            18\n",
+            "4         Russia         True           200\n",
+            "5        Morocco         True            70\n",
+            "6          Egypt         True            45\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Exercise 2**"
+      ],
+      "metadata": {
+        "id": "yLx-ljZRc1yS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Inserir o index US, AUS etc ao invés de números 0,1,2,3 para cada estado"
+      ],
+      "metadata": {
+        "id": "2YYjgXtQd-u6"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Definition of row_labels\n",
+        "\n",
+        "row_labels = ['US','AUS','JPN','IN','RU','MOR','EG']\n"
+      ],
+      "metadata": {
+        "id": "WF6_rBn9cyrN"
+      },
+      "execution_count": 16,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Specify row labels of cars\n",
+        "cars.index = row_labels"
+      ],
+      "metadata": {
+        "id": "K-Lpp_ftdRmV"
+      },
+      "execution_count": 17,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Print cars\n",
+        "print(cars)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qoY28FI1eMse",
+        "outputId": "e9bc40f3-f55e-4bec-84bf-0a462ab4f534"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "           country  drive_right  cars_per_cap\n",
+            "US   United States         True           809\n",
+            "AUS      Australia        False           731\n",
+            "JPN          Japan        False           588\n",
+            "IN           India        False            18\n",
+            "RU          Russia         True           200\n",
+            "MOR        Morocco         True            70\n",
+            "EG           Egypt         True            45\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Exercise 3**"
+      ],
+      "metadata": {
+        "id": "dmqQQ6qhffKt"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "CSV to DataFrame -> Putting data in a dictionary and building a DataFrame is not very efficient, if it have milions of observations. In this case the data is available as files, one of those file types is the CSV(comma-separated values). To import CSV data as Pandas DataFrame, use variable =pd.read_csv() "
+      ],
+      "metadata": {
+        "id": "byIBLzEmfgze"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# This case Pandas already was imported before, but if it's not, it's necessary to import pandas as pd\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "9iLuSz_5gaP_"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Import the cars.csv data: cars\n",
+        "\n",
+        "cars = pd.read_csv('cars.csv')  #say if is csv, excel, etc"
+      ],
+      "metadata": {
+        "id": "IqJYn5vqglPy"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Print out cars\n",
+        "print(cars)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4ISjKM5TgyO_",
+        "outputId": "dd871dd3-27d8-4643-8eeb-c2236af373c1"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "           country  drive_right  cars_per_cap\n",
+            "US   United States         True           809\n",
+            "AUS      Australia        False           731\n",
+            "JPN          Japan        False           588\n",
+            "IN           India        False            18\n",
+            "RU          Russia         True           200\n",
+            "MOR        Morocco         True            70\n",
+            "EG           Egypt         True            45\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Execise 4**"
+      ],
+      "metadata": {
+        "id": "8Bo6vv5Oh2e4"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The output of CSV is not entirely what we wanted. Use index_colu insede pd.read_csv() to specify which column in the CVS file should be used as a row label\n",
+        "\n",
+        "```\n",
+        "\n",
+        "```\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "xftSVgRoh4-_"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Fix import by including index_col\n",
+        "#first column should actually be used as row labels, set it 0(first column)\n",
+        "\n",
+        "cars = pd.read_csv('cars.csv', index_col=0)\n"
+      ],
+      "metadata": {
+        "id": "SeZyaUQ_iKi-"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Print out cars\n",
+        "print(cars)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5pSfIim7juFL",
+        "outputId": "688aa41b-4e46-44a8-c0b6-659b01eb48da"
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "           country  drive_right  cars_per_cap\n",
+            "US   United States         True           809\n",
+            "AUS      Australia        False           731\n",
+            "JPN          Japan        False           588\n",
+            "IN           India        False            18\n",
+            "RU          Russia         True           200\n",
+            "MOR        Morocco         True            70\n",
+            "EG           Egypt         True            45\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
