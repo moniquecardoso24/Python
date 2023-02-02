@@ -1,2 +1,2 @@
 # Aprendizado 
- Compartilhando meu aprendizado neste portifório. No primeiro momento, estou aprendendo Python.
+ Compartilhando meu aprendizado neste portfólio. No primeiro momento, estou aprendendo Python.
